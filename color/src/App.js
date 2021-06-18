@@ -5,6 +5,7 @@ import DB from './service';
 
 import './App.css';
 
+
 function App() {
 
   const db = new DB();
@@ -27,7 +28,7 @@ function App() {
     // TODO 格式校验
 
     await db.add({
-      color:clipData
+      color: clipData
     });
 
 
@@ -42,7 +43,7 @@ function App() {
         <h2>历史</h2>
         <div className="his">
           <ul>
-            {hisData.map((item, index)=>{
+            {hisData.map((item, index) => {
               return <li key={'colorBoxhis' + index}>{item}</li>
             })}
           </ul>
@@ -52,7 +53,7 @@ function App() {
 
         <h2>输入色彩值</h2>
         <div className="inputbox">
-          <textarea onPaste={(e)=>{pasteData(e)}}></textarea>
+          <textarea onPaste={(e) => { pasteData(e) }}></textarea>
         </div>
 
       </div>
@@ -62,8 +63,27 @@ function App() {
 }
 
 
+const App365 = () => {
+  const datas = [];
+  var x = 0;
+  for (var i = 0; i < 365; i++) {
+    datas.push(i + 1)
+    x+= i;
+  }
 
+  console.log(x);
+  return (
+    <div className="page_app365">
+      <h2>h2</h2>
+      <div className="app365">
+        {datas.map((item) => {
+          return (
+            <div key={'datas' + item}>{item}</div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
 
-
-
-export default App;
+export default App365;
