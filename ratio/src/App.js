@@ -7,7 +7,7 @@ function App() {
   const tnode = useRef(null);
 
   const [box, setBox] = useState({
-    lock: true,
+    lock: 1,
     width: '375px',
     height: '667px',
   })
@@ -28,10 +28,6 @@ function App() {
           if (entry.contentBoxSize && tnode.current) {
             let width = tnode.current.style.width;
             let height = tnode.current.style.height;
-
-
-
-
             setBox({
               width: width,
               height: height,
@@ -45,17 +41,27 @@ function App() {
   }, [])
 
 
-
-
   const _onChange = function (value, key) {
+
+
+    if(box.lock){
+
+
+
+
+
+    }
+
 
     let _one = {}
     _one[key] = value;
     let _box = Object.assign({}, box, _one);
 
+
+
+
     setBox(_box)
   }
-
 
   return (
     <div className="App">
@@ -82,6 +88,14 @@ function App() {
             <span>2x: {calsize(box.height, 2) + 'px'}</span>
             <span>3x: {calsize(box.height, 3) + 'px'}</span>
           </div>
+          <div>
+            锁定:
+            <label><input onClick={(e) => { _onChange(0, 'lock') }} type="radio" name="lock" defaultChecked={box.lock === 0} /> 不锁比例</label>
+            <label><input onClick={(e) => { _onChange(1, 'lock') }} type="radio" name="lock" defaultChecked={box.lock === 1} />  锁比例</label>
+          </div>
+
+          {/* {JSON.stringify(box)} */}
+
         </div>
       </div>
     </div>
