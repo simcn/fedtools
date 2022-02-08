@@ -1,6 +1,5 @@
 import React, {
   useState,
-  useEffect,
   useRef
 } from 'react';
 import copy from 'copy-text-to-clipboard';
@@ -15,12 +14,18 @@ function App() {
   const ref2 = useRef('');
   const c = document.createElement("canvas");
   const ctx = c.getContext("2d");
+
   const cas = (c, ctx) => {
+
+
+    var w = ref2.current.width;
+    var h = ref2.current.height;
+
     // console.log(_img.width)
-    c.width = ref2.current.width;
-    c.height = ref2.current.height;
+    c.width = w;
+    c.height = h;
     ctx.drawImage(ref2.current, 0, 0);
-    var imageD = ctx.getImageData(0, 0, ref2.current.width, ref2.current.height);
+    var imageD = ctx.getImageData(0, 0, w, h);
     var pdata = imageD.data;
 
     var out = {};
@@ -28,6 +33,9 @@ function App() {
       let key = [pdata[j],pdata[j + 1],pdata[j + 2]].join(',');
       out[key] = [pdata[j],pdata[j + 1],pdata[j + 2]];
     }
+
+    console.log(pdata);
+
     upHisData(out);
   }
 
@@ -37,8 +45,6 @@ function App() {
   }
 
   // TODO 锐化图片
-
-
   const pasteData = async (event) => {
     navigator.permissions.query({
       name: "clipboard-read"
@@ -100,13 +106,9 @@ const ColorItem = (props) => {
   const {item} = props;
   const rgb = rgb2hex('rgb(' +  item + ')');
 
-  // toString
-
   const onCopy = (c)=>{
     copy(c.toLocaleUpperCase());
   }
-
-
 
   return (
     <div className="items" style={{backgroundColor:rgb.hex}} onClick={()=>{onCopy(rgb.hex)}}>
