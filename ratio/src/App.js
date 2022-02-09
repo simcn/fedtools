@@ -103,3 +103,25 @@ function App() {
 }
 
 export default App;
+
+
+
+let dd = {
+  "data":"开始",
+  "i":0,
+  "change":function(){
+
+    this.begin()
+
+    var item = ["变化1","变化2","变化3"]
+
+    this.end()
+    return item[this.i++]
+  },
+  "begin":function(){
+    console.log("begin")
+  },
+  "end":function(){
+    console.log("end")
+  }
+}
