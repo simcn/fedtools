@@ -19,23 +19,33 @@ body{
         flex: 1;
         height: 100vh;
         box-sizing: border-box;
-        padding: 1vw;
+        overflow: auto;
     }
     .input_box{
         display: flex;
         flex-direction: column;
-        code,
-        pre,
+        border-right: 1px solid #ccc;
         textarea{
             flex: 1;
         }
-        > div{
-            width: 33.33vw;
+    }
+
+    .tool_box{
+
+        pre{
+            margin-top: 0;
+        }
+
+
+
+    }
+    .out_box{
+        box-sizing: border-box;
+        border-left: 1px solid #ccc;
+        overflow: auto;
+        img{
+            display: block;
         }
     }
-    .out_box{}
-    .tool_box{
-        border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-    }
+
 }

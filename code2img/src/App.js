@@ -6,7 +6,6 @@ import html2canvas from 'html2canvas';
 // 文档
 // https://github.com/PrismJS/prism/blob/388ad996c4b576205de4d4feda69202bd26c1345/components.json
 
-
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
@@ -50,7 +49,7 @@ function App() {
   return (
     <div className="app">
       <div className='input_box'>
-        <textarea ref={codeNode} style={{ padding: 10, border: "0 none" }} value={code} id="code" onChange={codeChange}></textarea>
+        <textarea placeholder="请填入代码" ref={codeNode} style={{ padding: 10, border: "0 none" }} value={code} id="code" onChange={codeChange}></textarea>
       </div>
       <div className='tool_box'>
         <div ref={prismCodeNode}>
