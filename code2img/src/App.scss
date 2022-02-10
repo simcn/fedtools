@@ -1,0 +1,41 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    #root{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+.app{
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    > div{
+        flex: 1;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 1vw;
+    }
+    .input_box{
+        display: flex;
+        flex-direction: column;
+        code,
+        pre,
+        textarea{
+            flex: 1;
+        }
+        > div{
+            width: 33.33vw;
+        }
+    }
+    .out_box{}
+    .tool_box{
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+    }
+}
